@@ -13,8 +13,8 @@ public class Demo {
         System.out.println(circle);
 
         // Modify the Circle
-        if (circle instanceof Circle) {
-            ((Circle) circle).setRadius(5);
+        if (circle instanceof Circle circle1) {
+            circle1.setRadius(5);
             System.out.println("Updated Circle: " + circle);
         }
     }
