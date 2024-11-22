@@ -5,12 +5,11 @@ public class Ellipse extends Shape {
     // Constructor
     public Ellipse(String name, double axis1, double axis2) {
         super(name);
-        // Assign the larger value to a and the smaller to b
         this.a = Math.max(axis1, axis2);
         this.b = Math.min(axis1, axis2);
     }
 
-    // Getters
+    // Getters and Setters
     public double getA() {
         return a;
     }
@@ -19,13 +18,18 @@ public class Ellipse extends Shape {
         return b;
     }
 
-    // Setters
     public void setA(double a) {
         this.a = a;
     }
 
     public void setB(double b) {
         this.b = b;
+    }
+
+    @Override
+    public void scale(double factor) {
+        setA(a * factor);
+        setB(b * factor);
     }
 
     @Override
@@ -38,4 +42,3 @@ public class Ellipse extends Shape {
         return Math.PI * Math.sqrt(2 * (a * a + b * b) - (a - b) * (a - b));
     }
 }
-

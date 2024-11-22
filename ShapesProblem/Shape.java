@@ -1,9 +1,14 @@
-public abstract class Shape {
+public abstract class Shape implements Scaler {
     protected String name;
 
     // Constructor
     public Shape(String name) {
         this.name = name;
+    }
+
+    // Getter for name
+    public String getName() {
+        return name;
     }
 
     // Abstract methods

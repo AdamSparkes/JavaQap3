@@ -1,21 +1,33 @@
 public class Demo {
     public static void main(String[] args) {
         // Create shapes
-        Shape ellipse = new Ellipse("Ellipse1", 5, 3);
-        Shape triangle = new Triangle("Triangle1", 3, 4, 5);
-        Shape equilateralTriangle = new EquilateralTriangle("EquilateralTriangle1", 6);
-        Shape circle = new Circle("Circle1", 4);
+        Scaler[] shapes = {
+            new Ellipse("Ellipse1", 5, 3),
+            new Triangle("Triangle1", 3, 4, 5),
+            new EquilateralTriangle("EquilateralTriangle1", 6),
+            new Circle("Circle1", 4)
+        };
 
-        // Display shape details
-        System.out.println(ellipse);
-        System.out.println(triangle);
-        System.out.println(equilateralTriangle);
-        System.out.println(circle);
+        // Print shapes before scaling
+        System.out.println("Before Scaling:");
+        for (Scaler shape : shapes) {
+            System.out.println(shape);
+        }
 
-        // Modify the Circle
-        if (circle instanceof Circle circle1) {
-            circle1.setRadius(5);
-            System.out.println("Updated Circle: " + circle);
+        // Scale shapes
+        scaleShapes(shapes, 2); // Scale by a factor of 2
+
+        // Print shapes after scaling
+        System.out.println("\nAfter Scaling:");
+        for (Scaler shape : shapes) {
+            System.out.println(shape);
+        }
+    }
+
+    // Static method to scale shapes
+    public static void scaleShapes(Scaler[] shapes, double factor) {
+        for (Scaler shape : shapes) {
+            shape.scale(factor);
         }
     }
 }

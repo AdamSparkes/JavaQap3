@@ -4,7 +4,6 @@ public class Triangle extends Shape {
     // Constructor
     public Triangle(String name, double side1, double side2, double side3) {
         super(name);
-        // Check if the sides form a valid triangle
         if (isValidTriangle(side1, side2, side3)) {
             this.side1 = side1;
             this.side2 = side2;
@@ -14,7 +13,7 @@ public class Triangle extends Shape {
         }
     }
 
-    // Getter methods
+    // Getters
     public double getSide1() {
         return side1;
     }
@@ -27,32 +26,15 @@ public class Triangle extends Shape {
         return side3;
     }
 
-    // Setter methods with validation
-    public void setSide1(double side1) {
-        if (isValidTriangle(side1, this.side2, this.side3)) {
-            this.side1 = side1;
-        } else {
-            throw new IllegalArgumentException("Invalid side lengths for a triangle.");
-        }
+    // Scale method
+    @Override
+    public void scale(double factor) {
+        side1 *= factor;
+        side2 *= factor;
+        side3 *= factor;
     }
 
-    public void setSide2(double side2) {
-        if (isValidTriangle(this.side1, side2, this.side3)) {
-            this.side2 = side2;
-        } else {
-            throw new IllegalArgumentException("Invalid side lengths for a triangle.");
-        }
-    }
-
-    public void setSide3(double side3) {
-        if (isValidTriangle(this.side1, this.side2, side3)) {
-            this.side3 = side3;
-        } else {
-            throw new IllegalArgumentException("Invalid side lengths for a triangle.");
-        }
-    }
-
-    // Method to check if the sides form a valid triangle
+    // Validity check
     private boolean isValidTriangle(double side1, double side2, double side3) {
         return side1 + side2 > side3 && side2 + side3 > side1 && side3 + side1 > side2;
     }
